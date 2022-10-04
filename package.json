@@ -1,6 +1,6 @@
 {
-  "name": "my-module",
-  "version": "1.0.0",
+  "name": "@lewebsimple/nuxt-primevue",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,16 +18,26 @@
     "prepack": "nuxt-module-build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0-rc.11"
   },
   "devDependencies": {
+    "@lewebsimple/eslint-config-vue": "^0.5.5",
     "@nuxt/module-builder": "latest",
     "@nuxt/schema": "^3.0.0-rc.11",
     "@nuxtjs/eslint-config-typescript": "latest",
-    "eslint": "latest",
+    "eslint": "^8.24.0",
+    "husky": "^8.0.1",
+    "nano-staged": "^0.8.0",
     "nuxt": "^3.0.0-rc.11"
+  },
+  "eslintConfig": {
+    "extends": "@lewebsimple/eslint-config-vue"
+  },
+  "nano-staged": {
+    "*.{js,ts,vue}": "eslint --fix --ignore-path .gitignore"
   }
 }

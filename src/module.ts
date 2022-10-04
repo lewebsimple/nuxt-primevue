@@ -1,24 +1,18 @@
-import { resolve } from 'path'
-import { fileURLToPath } from 'url'
-import { defineNuxtModule, addPlugin } from '@nuxt/kit'
+import { resolve } from "path";
+import { fileURLToPath } from "url";
+import { defineNuxtModule, addPlugin } from "@nuxt/kit";
 
-export interface ModuleOptions {
-  addPlugin: boolean
-}
+export interface NuxtPrimevueOptions {}
 
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule<NuxtPrimevueOptions>({
   meta: {
-    name: 'my-module',
-    configKey: 'myModule'
+    name: "nuxt-primevue",
+    configKey: "primevue",
   },
-  defaults: {
-    addPlugin: true
+  defaults: {},
+  setup(_options, nuxt) {
+    const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
+    nuxt.options.build.transpile.push(runtimeDir);
+    addPlugin(resolve(runtimeDir, "plugin"));
   },
-  setup (options, nuxt) {
-    if (options.addPlugin) {
-      const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
-      nuxt.options.build.transpile.push(runtimeDir)
-      addPlugin(resolve(runtimeDir, 'plugin'))
-    }
-  }
-})
+});

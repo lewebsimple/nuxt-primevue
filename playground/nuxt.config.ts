@@ -1,11 +1,6 @@
-import { defineNuxtConfig } from 'nuxt/config'
-import MyModule from '..'
+import { defineNuxtConfig } from "nuxt/config";
+import NuxtPrimeVUE from "..";
 
 export default defineNuxtConfig({
-  modules: [
-    MyModule
-  ],
-  myModule: {
-    addPlugin: true
-  }
-})
+  modules: [NuxtPrimeVUE],
+});
