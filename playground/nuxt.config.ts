@@ -3,4 +3,9 @@ import NuxtPrimeVUE from "..";
 
 export default defineNuxtConfig({
   modules: [NuxtPrimeVUE],
+  primevue: {
+    resolver: {
+      importTheme: "tailwind-light",
+    },
+  },
 });
