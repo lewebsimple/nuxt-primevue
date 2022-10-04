@@ -47,5 +47,8 @@
   },
   "nano-staged": {
     "*.{js,ts,vue}": "eslint --fix --ignore-path .gitignore"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
