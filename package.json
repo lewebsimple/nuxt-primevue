@@ -22,7 +22,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.0.0-rc.11"
+    "@nuxt/kit": "^3.0.0-rc.11",
+    "primeicons": "^6.0.1",
+    "primevue": "^3.17.0",
+    "unplugin-vue-components": "^0.22.7"
   },
   "devDependencies": {
     "@lewebsimple/eslint-config-vue": "^0.5.5",
