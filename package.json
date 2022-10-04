@@ -1,5 +1,10 @@
 {
   "name": "@lewebsimple/nuxt-primevue",
+  "description": "PrimeVUE module for Nuxt.js",
+  "author": {
+    "name": "Pascal Martineau",
+    "email": "pascal@lewebsimple.ca"
+  },
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
