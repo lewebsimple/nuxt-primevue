@@ -1,3 +1,4 @@
+import { existsSync, mkdirSync } from "fs";
 import { resolve } from "path";
 import { fileURLToPath } from "url";
 import { defineNuxtModule, addPlugin, extendViteConfig } from "@nuxt/kit";
@@ -22,6 +23,7 @@ export default defineNuxtModule<NuxtPrimevueOptions>({
   },
   setup(options, nuxt) {
     const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
+    const dtsDir = `${nuxt.options.srcDir}/types`;
     nuxt.options.build.transpile.push(runtimeDir);
     addPlugin(resolve(runtimeDir, "plugin"));
     // Transpile primevue
@@ -32,10 +34,12 @@ export default defineNuxtModule<NuxtPrimevueOptions>({
       config.plugins.push(
         Components({
           resolvers: [PrimeVueResolver(options.resolver)],
-          dts: "types/components.d.ts",
+          dts: `${dtsDir}/components.d.ts`,
         }),
       );
     });
+    // Create types folder if missing
+    !existsSync(dtsDir) && mkdirSync(dtsDir);
   },
 });
 
