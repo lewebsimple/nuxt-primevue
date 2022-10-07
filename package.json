@@ -24,7 +24,8 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "release-it"
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0-rc.11",
@@ -40,7 +41,8 @@
     "eslint": "^8.24.0",
     "husky": "^8.0.1",
     "nano-staged": "^0.8.0",
-    "nuxt": "^3.0.0-rc.11"
+    "nuxt": "^3.0.0-rc.11",
+    "release-it": "^15.5.0"
   },
   "eslintConfig": {
     "extends": "@lewebsimple/eslint-config-vue"
@@ -50,5 +52,10 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
   }
 }
